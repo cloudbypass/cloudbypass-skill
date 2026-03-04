@@ -73,7 +73,7 @@
     "timeout": {
       "type": "number",
       "required": false,
-      "default": 30000,
+      "default": 65000,
       "description": "请求超时时间（毫秒）"
     }
   },

@@ -35,7 +35,7 @@ class CloudbypassSkill {
         this.sitekey = config.sitekey || process.env.CLOUDBYPASS_SITEKEY;
         
         // 请求超时
-        this.timeout = config.timeout || 30000;
+        this.timeout = config.timeout || 65000;
     }
 
     /**
