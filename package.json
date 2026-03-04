@@ -1,0 +1,54 @@
+{
+  "name": "cloudbypass-skill",
+  "version": "0.0.1",
+  "description": "穿云API的OpenClaw技能实现，用于绕过Cloudflare等反爬虫保护",
+  "main": "scripts/cloudbypass_request.js",
+  "type": "commonjs",
+  "scripts": {
+    "release": "release-it"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}",
+      "tagName": "v${version}",
+      "requireCleanWorkingDir": false
+    },
+    "github": {
+      "release": true,
+      "releaseName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "hooks": {
+      "after:bump": "echo 'Version bumped to ${version}'"
+    }
+  },
+  "keywords": [
+    "cloudbypass",
+    "cloudflare",
+    "anti-crawl",
+    "bypass",
+    "proxy",
+    "api",
+    "openclaw",
+    "skill"
+  ],
+  "author": "Cloudbypass",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudbypass/cloudbypass-skill"
+  },
+  "homepage": "https://www.cloudbypass.com/",
+  "bugs": {
+    "url": "https://github.com/cloudbypass/cloudbypass-skill/issues"
+  },
+  "files": [
+    "SKILL.md",
+    "scripts/"
+  ]
+}
