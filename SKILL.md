@@ -6,8 +6,10 @@ description: Use Cloudbypass API (穿云API/穿云) to fetch pages protected by 
 Use the bundled script to call Cloudbypass API (穿云API/穿云).
 
 - Script: `{baseDir}/scripts/cloudbypass_request.js`
-- Required env: `CLOUDBYPASS_APIKEY`
+- Required env: `CLOUDBYPASS_APIKEY` (Get API key from https://console.cloudbypass.com/#/)
 - Optional env: `CLOUDBYPASS_PROXY` (for V2 mode), `CLOUDBYPASS_PART`, `CLOUDBYPASS_SITEKEY`
+- Homepage: https://www.cloudbypass.com/
+- Source: https://github.com/cloudbypass/cloudbypass-skill
 
 ## When to Use
 

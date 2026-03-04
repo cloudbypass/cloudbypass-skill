@@ -1,6 +1,6 @@
 {
   "name": "cloudbypass-skill",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "穿云API的OpenClaw技能实现，用于绕过Cloudflare等反爬虫保护",
   "main": "scripts/cloudbypass_request.js",
   "type": "commonjs",
