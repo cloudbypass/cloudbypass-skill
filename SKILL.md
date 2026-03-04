@@ -1,34 +1,33 @@
 ---
 name: cloudbypass
-description: Use Cloudbypass API (穿云API/穿云) to fetch pages protected by Cloudflare/Turnstile/JS challenge. Use when normal requests return challenge/403 and user asks for compliant scraping or protected-page retrieval.
+description: Use Cloudbypass API (穿云API/穿云) to fetch pages protected by Cloudflare/Turnstile/JS challenge. Use when normal requests fail with challenge/403 and compliant protected-page retrieval is required. Requires CLOUDBYPASS_APIKEY; V2/V2S also require CLOUDBYPASS_PROXY.
 ---
 
-Use the bundled script to call Cloudbypass API (穿云API/穿云).
+Use the bundled script to call Cloudbypass API.
 
 - Script: `{baseDir}/scripts/cloudbypass_request.js`
-- Required env: `CLOUDBYPASS_APIKEY` (Get API key from https://console.cloudbypass.com/#/)
-- Optional env: `CLOUDBYPASS_PROXY` (for V2 mode), `CLOUDBYPASS_PART`, `CLOUDBYPASS_SITEKEY`
-- Homepage: https://www.cloudbypass.com/
-- Source: https://github.com/cloudbypass/cloudbypass-skill
 
-## When to Use
+Required env:
+- `CLOUDBYPASS_APIKEY` (required)
+- `CLOUDBYPASS_PROXY` (required for V2/V2S)
+- `CLOUDBYPASS_PART` (optional, default: `0`)
+- `CLOUDBYPASS_SITEKEY` (optional)
 
-- Normal requests return 403, but browser can access
-- Encounter Cloudflare 5-second shield
-- Need to handle JavaScript challenges or Turnstile verification
-- Need to download protected files
+Security / usage notes:
+- API key is sent to `api.cloudbypass.com` to perform requests and may incur billing.
+- Review legal/ethical permissions before bypassing site protections.
+- For autonomous usage, scope targets and monitor/rotate keys.
 
-## Usage
+## Quick usage
 
 ```javascript
 const skill = await openclaw.getSkill('cloudbypass');
 
-// V1 mode - Simple requests
-const response = await skill.get('https://example.com');
+// V1 (simple)
+const r1 = await skill.get('https://example.com');
 
-// V2 mode - Complex sessions (requires proxy)
-const response = await skill.requestV2({
-  url: 'https://example.com',
-  proxy: 'http://proxy:port'
+// V2 (challenge-heavy; proxy required)
+const r2 = await skill.requestV2({
+url: 'https://example.com',
+proxy: process.env.CLOUDBYPASS_PROXY
 });
-```
